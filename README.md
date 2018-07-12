@@ -53,10 +53,3 @@ php artisan auth:permission Comment --remove
 ##php artisan route:clear
 ##php artisan clear-compiled
 ##php artisan config:cache
-
-### Author
-Created by [QCode.in](http://www.qcode.in)
-
-## License
-
-[MIT license](http://opensource.org/licenses/MIT).
