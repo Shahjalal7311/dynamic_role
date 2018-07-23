@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                {!! Form::model($post, ['method' => 'PUT', 'route' => ['posts.update',  $post->id ] ]) !!}
+                {!! Form::model($post, ['method' => 'PUT', 'route' => ['posts.update',  $post->id], 'enctype' => 'multipart/form-data' ]) !!}
                     @include('post._form')
                     <!-- Submit Form Button -->
                     {!! Form::submit('Save Changes', ['class' => 'btn btn-primary']) !!}

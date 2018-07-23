@@ -17,10 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin/home', 'HomeController@index')->name('home');
+Route::get('/admin/dashboard', 'HomeController@index')->name('home');
 
 Route::group( ['middleware' => ['auth']], function() {
     Route::resource('/admin/users', 'UserController');
     Route::resource('/admin/roles', 'RoleController');
     Route::resource('/admin/posts', 'PostController');
+    Route::resource('/admin/artical', 'ArticalController');
+    Route::get('/admin/add', 'PostController@csvupload')->name('add');
+    Route::post('/admin/import', 'PostController@import')->name('import');
 });

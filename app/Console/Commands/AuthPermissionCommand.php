@@ -74,7 +74,7 @@ class AuthPermissionCommand extends Command
      */
     private function generatePermissions()
     {
-        $abilities = ['view', 'add', 'edit', 'delete'];
+        $abilities = ['view', 'add', 'edit', 'delete','status','print'];
         $name = $this->getNameArgument();
 
         return array_map(function($val) use ($name) {

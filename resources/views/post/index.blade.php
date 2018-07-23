@@ -26,6 +26,11 @@
                     </a>
                 @endcan
               </div>
+              <div class="pull-right">
+                  <a href="{{ route('add') }}" class="btn btn-primary btn-sm" style="margin-right: 20px;"> 
+                      <i class="glyphicon glyphicon-plus-sign"></i> Import
+                  </a>
+              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -34,6 +39,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Title</th>
+                        <th>Image</th>
                         <th>Author</th>
                         <th>Created At</th>
                         @can('edit_posts', 'delete_posts')
@@ -43,9 +49,17 @@
                 </thead>
                 <tbody>
                     @foreach($result as $item)
+                        <?php $image_name =  $item->image_name; ?>
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->title }}</td>
+                            <td>
+                              <?php if((!empty($image_name))){ ?>
+                              <img src="{{asset('uploads/posts').'/'.$item->id.'/'.$image_name}}" width="50" height="50" alt="{{$item->title}}"/>
+                            <?php } else { ?>
+                              <img src="{{asset('img/post_dafult.jpg')}}" width="50" height="50" alt="{{$item->title}}"/>
+                            <?php } ?>
+                            </td>
                             <td>{{ $item->user['name'] }}</td>
                             <td>{{ $item->created_at->toFormattedDateString() }}</td>
                             @can('edit_posts', 'delete_posts')

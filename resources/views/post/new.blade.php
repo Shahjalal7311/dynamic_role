@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                {!! Form::open(['route' => ['posts.store'] ]) !!}
+                {!! Form::open(['route' => ['posts.store'], 'enctype' => 'multipart/form-data' ]) !!}
                     @include('post._form')
                     <!-- Submit Form Button -->
                     {!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}

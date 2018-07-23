@@ -20,7 +20,6 @@ class RoleController extends Controller
     {
         $roles = Role::all();
         $permissions = Permission::all();
-
         return view('role.index', compact('roles', 'permissions'));
     }
 
@@ -56,16 +55,12 @@ class RoleController extends Controller
                 $role->syncPermissions(Permission::all());
                 return redirect()->route('roles.index');
             }
-
             $permissions = $request->get('permissions', []);
-
             $role->syncPermissions($permissions);
-
             flash( $role->name . ' permissions has been updated.');
         } else {
             flash()->error( 'Role with id '. $id .' note found.');
         }
-
         return redirect()->route('roles.index');
     }
 }
